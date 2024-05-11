@@ -1,0 +1,90 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\XclFileGenerator.exe $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\SourceIndexer.exe $flags
+
+rule MAKEBROWSE
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\makeBrowseData.exe $flags
+
+rule PDBLINK
+  command = C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\common\bin\PbdLink.exe $flags
+
+
+
+#Build steps
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\HAL\LED.c -xcl_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.xcl -macro_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Abdo\Programming\CSE411-RTOS\Lab1\HAL\LED.c -o C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\Obj\HAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.tmp
+  rspfile_name = C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.xcl.rsp
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\MCAL\GPIO.c -xcl_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.xcl -macro_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Abdo\Programming\CSE411-RTOS\Lab1\MCAL\GPIO.c -o C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\Obj\MCAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.tmp
+  rspfile_name = C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.xcl.rsp
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\MCAL\SYSTICK.c -xcl_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.xcl -macro_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Abdo\Programming\CSE411-RTOS\Lab1\MCAL\SYSTICK.c -o C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\Obj\MCAL --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.tmp
+  rspfile_name = C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.xcl.rsp
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\main.c -xcl_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.xcl -macro_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Abdo\Programming\CSE411-RTOS\Lab1\main.c -o C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.tmp
+  rspfile_name = C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.xcl.rsp
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\startup_ewarm.c -xcl_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.xcl -macro_file C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\bin\iccarm.exe"
+  flags = C$:\Abdo\Programming\CSE411-RTOS\Lab1\startup_ewarm.c -o C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\Obj\ --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.0\arm\inc\c\DLib_Config_Normal.h" -Ol --predef_macros C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.tmp
+  rspfile_name = C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.pbi : INDEXER C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.xcl |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\HAL\LED.c
+  flags = -out=C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.pbi -f C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.xcl
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.pbi : INDEXER C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.xcl |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\MCAL\GPIO.c
+  flags = -out=C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.pbi -f C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.xcl
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.pbi : INDEXER C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.xcl |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\MCAL\SYSTICK.c
+  flags = -out=C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.pbi -f C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.xcl
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.pbi : INDEXER C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.xcl |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\main.c
+  flags = -out=C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.pbi -f C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.xcl
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.xcl |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\startup_ewarm.c
+  flags = -out=C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.pbi -f C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.xcl
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab.pbw : MAKEBROWSE C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab.pbd
+  flags = C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab.pbd -output C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab.pbw
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part0.pbi : PDBLINK C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.pbi |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.pbi
+  flags = -M C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part0.pbi C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.pbi C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\GPIO.pbi
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part1.pbi : PDBLINK C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.pbi |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.pbi
+  flags = -M C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part1.pbi C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\MCAL\SYSTICK.pbi C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\main.pbi
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part2.pbi : PDBLINK C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.pbi
+  flags = -M C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part2.pbi C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\startup_ewarm.pbi
+
+build C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab.pbd : PDBLINK C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part0.pbi |  $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part1.pbi $
+C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part2.pbi
+  flags = -M C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab.pbd C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part0.pbi C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part1.pbi C$:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\rtlab_part2.pbi
+

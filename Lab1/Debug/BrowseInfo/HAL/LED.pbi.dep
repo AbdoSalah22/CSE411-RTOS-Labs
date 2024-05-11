@@ -1,0 +1,6 @@
+C:\Abdo\Programming\CSE411-RTOS\Lab1\Debug\BrowseInfo\HAL\LED.pbi: \
+  C:\Abdo\Programming\CSE411-RTOS\Lab1\HAL\LED.c \
+  C:\Abdo\Programming\CSE411-RTOS\Lab1\HAL/LED.h \
+  C:\Abdo\Programming\CSE411-RTOS\Lab1\HAL/../MCAL/GPIO.h \
+  C:\Abdo\Programming\CSE411-RTOS\Lab1\HAL/../MCAL/../tm4c123gh6pm.h \
+  C:\Abdo\Programming\CSE411-RTOS\Lab1\HAL/../MCAL/../types.h
